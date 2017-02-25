@@ -1,4 +1,4 @@
-# Bham Bad Eats
+# Austin Bad Eats
 
 Web scraper to post sub-70 Austin area restaurant health inspections to Twitter
 
