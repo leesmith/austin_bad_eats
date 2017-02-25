@@ -18,7 +18,7 @@ InspectionReport = Struct.new(:establishment, :address, :city, :zip, :inspection
   end
 
   def to_tweet
-    "#{establishment} scored #{score} on #{inspection_date}"
+    "#{establishment} in #{city} scored #{score} on #{inspection_date}"
   end
 
   def to_s
@@ -38,7 +38,7 @@ CSV.foreach('history.csv') do |row|
   inspection_history << InspectionReport.new(establishment, address, city, zip, inspection_date, score)
 end
 
-beg_date = (Date.today - 30).strftime('%d-%b-%Y')
+beg_date = (Date.today - 45).strftime('%d-%b-%Y')
 end_date = Date.today.strftime('%d-%b-%Y')
 search_params="?submit=search&orderby=3&begdate=#{beg_date}&enddate=#{end_date}&estabcity=All&estabname=&selpara=0&estabzip=All"
 doc = Nokogiri::HTML(open(DOC_ROOT + search_params))
