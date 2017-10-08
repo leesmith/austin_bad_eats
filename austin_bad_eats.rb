@@ -18,7 +18,7 @@ InspectionReport = Struct.new(:establishment, :address, :city, :zip, :inspection
   end
 
   def to_tweet
-    "#{establishment} in #{city} scored #{score} on #{inspection_date}"
+    "#{establishment} at #{address} in #{city} scored #{score} on #{inspection_date}"
   end
 
   def to_s
@@ -52,7 +52,7 @@ rows.each_with_index do |tr, i|
 
   establishment = tr.children[1].text.strip
   address = tr.children[3].text.strip
-  city = tr.children[5].text.strip
+  city = tr.children[5].text.strip.capitalize
   zip = tr.children[7].text.strip
   inspection_date = Date.strptime(tr.children[9].text, '%m/%d/%Y')
   score = tr.children[11].text.to_i
